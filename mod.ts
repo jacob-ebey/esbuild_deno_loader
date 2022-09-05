@@ -67,7 +67,7 @@ export function denoPlugin(options: DenoPluginOptions = {}): esbuild.Plugin {
         } else {
           resolved = new URL(args.path, referrer);
         }
-        return { path: resolved.href, namespace: "deno" };
+        return { path: resolved.href, namespace: "deno", sideEffects: false };
       });
 
       build.onLoad({ filter: /.*/ }, function onLoad(
